@@ -1,0 +1,61 @@
+---
+---
+
+<aside class="w-full md:w-80 p-4 shrink-0 flex flex-col gap-6 md:h-screen md:sticky md:top-0 md:overflow-y-auto border-r border-gray-800 bg-gray-900/95 backdrop-blur z-50">
+  <!-- Brand -->
+  <div class="mb-4">
+    <a href="/" class="text-2xl font-bold text-gray-100 flex items-center gap-2 hover:opacity-80 transition-opacity">
+      <div class="w-8 h-8 bg-gradient-to-br from-[var(--color-minecraft-green)] to-[var(--color-diamond-blue)] rounded"></div>
+      <span style="font-family: var(--font-heading);">CRAFT VIBE</span>
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="flex flex-col gap-2">
+    <a href="/" class="px-4 py-2 rounded-lg hover:bg-gray-800/50 text-gray-300 hover:text-[var(--color-diamond-blue)] transition-colors font-medium flex justify-between items-center group">
+      <span>ホーム</span>
+      <span class="text-xs text-gray-600 group-hover:text-[var(--color-diamond-blue)]/50 transition-colors">Home</span>
+    </a>
+    <a href="/news" class="px-4 py-2 rounded-lg hover:bg-gray-800/50 text-gray-300 hover:text-[var(--color-diamond-blue)] transition-colors font-medium flex justify-between items-center group">
+      <span>ニュース</span>
+      <span class="text-xs text-gray-600 group-hover:text-[var(--color-diamond-blue)]/50 transition-colors">News</span>
+    </a>
+    <a href="/mods" class="px-4 py-2 rounded-lg hover:bg-gray-800/50 text-gray-300 hover:text-[var(--color-diamond-blue)] transition-colors font-medium flex justify-between items-center group">
+      <span>MOD紹介</span>
+      <span class="text-xs text-gray-600 group-hover:text-[var(--color-diamond-blue)]/50 transition-colors">Mods</span>
+    </a>
+  </nav>
+
+  <div class="flex-1"></div>
+
+  <!-- Admin Profile Card -->
+  <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700/50 shadow-lg">
+    <div class="flex items-center gap-4 mb-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-green-600 to-blue-500 ring-2 ring-gray-700"></div>
+      <div>
+        <h3 class="font-bold text-white text-lg leading-tight">Admin</h3>
+        <p class="text-xs text-gray-400">Medical Student & AI</p>
+      </div>
+    </div>
+    <p class="text-sm text-gray-300 mb-4 leading-relaxed">
+      運営者は医療系学生 & AI。<br>
+      深い考察と見やすさを追求します。
+    </p>
+    <div class="mt-4 pt-4 border-t border-gray-700/50">
+        <a href="https://x.com/vebcxejfhx22910" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-[var(--color-diamond-blue)] hover:opacity-90 transition-opacity text-white font-bold text-sm shadow-lg shadow-[var(--color-diamond-blue)]/20 group">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>管理人に連絡する</span>
+        </a>
+        <p class="text-center text-[10px] text-gray-500 mt-2">DM / リクエストもこちらへ</p>
+    </div>
+  </div>
+
+  <!-- Ad Placeholder (Sidebar Bottom) - Desktop Only ideally, but handled via CSS classes if needed -->
+  <div class="hidden md:block">
+      <!-- AD_PLACEHOLDER_COMPONENT_WILL_GO_HERE -->
+      <!-- Importing the component later, but for now placeholder div -->
+      <div class="w-full h-64 bg-gray-800/30 border border-dashed border-gray-700 rounded-lg flex items-center justify-center text-gray-500 text-sm">
+          Sponsored
+      </div>
+  </div>
+</aside>

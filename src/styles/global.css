@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --color-minecraft-green: #5b8731;
+  --color-minecraft-dark: #111827;
+  /* gray-900 */
+  --color-diamond-blue: #3c8527;
+  /* Placeholder, will fix to actual diamond blue */
+  /* Fixing diamond blue to a better value */
+  --color-diamond-blue: #0fd2bd;
+  /* Standard MC diamond color ish */
+
+  --font-heading: 'Kanit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Custom Utilities if needed */
+@utility text-shadow-block {
+  text-shadow: 2px 2px 0px #000;
+}
+
+/* Minecraft Dirt Block Pattern (Procedural CSS) */
+/* Minecraft Block Patterns (Pixel Art style) */
+
+/* Dirt (Standard) */
+@utility pattern-dirt {
+  background-color: #3b281f;
+  /* slightly lighter dirt for visibility */
+  background-image:
+    linear-gradient(45deg, #2d1e18 25%, transparent 25%, transparent 75%, #2d1e18 75%, #2d1e18),
+    linear-gradient(45deg, #2d1e18 25%, transparent 25%, transparent 75%, #2d1e18 75%, #2d1e18);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  image-rendering: pixelated;
+}
+
+/* Redstone (News) */
+@utility pattern-redstone {
+  background-color: #931916;
+  /* Redstone base */
+  background-image:
+    conic-gradient(at 0% 0%, transparent 270deg, #740a08 270deg),
+    radial-gradient(circle at 50% 50%, #ff5e5e 2px, transparent 2.5px),
+    /* Sparkles */
+    linear-gradient(0deg, rgba(0, 0, 0, 0.1) 50%, transparent 50%);
+  background-size: 32px 32px, 40px 40px, 8px 8px;
+  background-position: 0 0, 10px 20px, 0 0;
+  image-rendering: pixelated;
+  /* Glow effect for redstone */
+  box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.3);
+}
+
+/* Diamond/Lapis (Mods) */
+@utility pattern-diamond {
+  background-color: #0b5e7d;
+  /* Lapis/Diamond base mix */
+  background-image:
+    conic-gradient(from 45deg at 25% 25%, #2e9abf 90deg, transparent 90deg),
+    conic-gradient(from 225deg at 75% 75%, #05364d 90deg, transparent 90deg),
+    linear-gradient(45deg, #64c2d3 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 0 0;
+  image-rendering: pixelated;
+}
+
+/* Grass Block Side (Misc) */
+@utility pattern-grass {
+  background-color: #3b281f;
+  /* Dirt base */
+  background-image:
+    linear-gradient(180deg, #5b8731 0%, #5b8731 25%, transparent 25%),
+    /* Grass top */
+    linear-gradient(45deg, #2d1e18 25%, transparent 25%, transparent 75%, #2d1e18 75%, #2d1e18);
+  /* Dirt texture */
+  background-size: 100% 100%, 20px 20px;
+  background-position: 0 0, 0 0;
+  image-rendering: pixelated;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-minecraft-dark);
+  color: #e5e7eb;
+  /* gray-200 */
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* Scrollbar customization for that premium feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-minecraft-green);
+}

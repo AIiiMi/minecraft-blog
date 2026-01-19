@@ -1,0 +1,70 @@
+---
+import VersionBadge from './VersionBadge.astro';
+
+interface Props {
+  title: string;
+  excerpt: string;
+  version: string;
+  date: string;
+  slug: string;
+  tags?: string[];
+  image?: string;
+}
+
+const { title, excerpt, version, date, slug, tags = [], image, category } = Astro.props;
+
+// Determine fallback style based on category/tags
+let patternClass = 'pattern-grass'; // Default (Misc)
+let fallbackText = title; // Default text
+let overlayColor = 'bg-black/20';
+
+const lowerTags = tags.map(t => t.toLowerCase());
+const lowerCat = category ? category.toLowerCase() : '';
+
+if (lowerCat === 'news' || lowerTags.includes('news') || lowerTags.includes('snapshot')) {
+    patternClass = 'pattern-redstone';
+    fallbackText = 'NEWS UPDATE';
+    overlayColor = 'bg-red-900/20';
+} else if (lowerCat === 'mods' || lowerTags.includes('mods') || lowerTags.includes('tech')) {
+    patternClass = 'pattern-diamond';
+    fallbackText = 'MOD REVIEW';
+    overlayColor = 'bg-blue-900/20';
+}
+---
+
+<a href={`/posts/${slug}`} class="group block bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[var(--color-minecraft-green)]/10 transition-all duration-300 border border-gray-700 hover:border-[var(--color-minecraft-green)]/50 hover:-translate-y-1">
+  <div class="aspect-video w-full bg-gray-700 relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+     {image ? (
+        <img src={image} alt={title} class="w-full h-full object-cover" />
+     ) : (
+        <div class={`w-full h-full flex items-center justify-center ${patternClass} relative transition-transform duration-700`}>
+             <div class={`absolute inset-0 ${overlayColor}`}></div>
+            <span class="text-xl md:text-2xl font-heading font-bold text-white/95 select-none tracking-widest uppercase z-10 text-shadow-block px-4 text-center leading-tight">
+                {fallbackText}
+            </span>
+        </div>
+     )}
+     
+     <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60 z-10 pointer-events-none"></div>
+
+     <div class="absolute top-3 right-3 z-20">
+         <VersionBadge version={version} />
+     </div>
+  </div>
+  
+  <div class="p-5">
+    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+        <time datetime={date}>{date}</time>
+        {tags.map(tag => (
+            <span class="px-2 py-0.5 rounded bg-gray-700 text-gray-300">#{tag}</span>
+        ))}
+    </div>
+    
+    <h2 class="text-xl font-bold font-heading text-white mb-2 leading-tight group-hover:text-[var(--color-diamond-blue)] transition-colors">
+        {title}
+    </h2>
+    <p class="text-gray-400 text-sm line-clamp-2">
+        {excerpt}
+    </p>
+  </div>
+</a>

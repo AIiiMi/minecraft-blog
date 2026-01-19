@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+    .filter(post => post.data.category === 'Mods')
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout title="Mods - Craft Vibe">
+	<section>
+        <h1 class="text-3xl md:text-5xl font-bold mb-2 font-heading text-white">
+            MOD紹介 <span class="text-2xl text-purple-400 font-normal ml-2">Mods Hub</span>
+        </h1>
+        <p class="text-gray-400 mb-8">厳選されたMOD & アドオン</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            {posts.map((post) => (
+                <ArticleCard
+                    title={post.data.title}
+                    excerpt={post.data.description}
+                    version={post.data.version}
+                    date={post.data.pubDate.toLocaleDateString('ja-JP')}
+                    slug={post.slug}
+                    tags={post.data.tags}
+                    image={post.data.heroImage}
+                />
+            ))}
+        </div>
+    </section>
+</Layout>

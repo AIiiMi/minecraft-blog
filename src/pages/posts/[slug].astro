@@ -1,0 +1,98 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import VersionBadge from '../../components/VersionBadge.astro';
+import AdPlaceholder from '../../components/AdPlaceholder.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+
+// Fallback Logic
+const lowerTags = (post.data.tags || []).map(t => t.toLowerCase());
+const lowerCat = post.data.category ? post.data.category.toLowerCase() : '';
+
+let patternClass = 'pattern-grass'; // Default (Misc)
+let fallbackText = 'CRAFT VIBE'; 
+let overlayColor = 'bg-black/20';
+
+if (lowerCat === 'news' || lowerTags.includes('news') || lowerTags.includes('snapshot')) {
+    patternClass = 'pattern-redstone';
+    fallbackText = 'NEWS UPDATE';
+    overlayColor = 'bg-red-900/20';
+} else if (lowerCat === 'mods' || lowerTags.includes('mods') || lowerTags.includes('tech')) {
+    patternClass = 'pattern-diamond';
+    fallbackText = 'MOD REVIEW';
+    overlayColor = 'bg-blue-900/20';
+} else {
+    // For general posts, use Title
+     fallbackText = post.data.title; 
+}
+---
+
+<Layout title={post.data.title}>
+	<article class="max-w-4xl mx-auto">
+        <!-- Header -->
+		<div class="mb-8 p-1">
+            <div class="mb-4 flex flex-wrap gap-2 items-center">
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs font-bold text-gray-400 uppercase tracking-wider">{post.data.category}</span>
+                <VersionBadge version={post.data.version} />
+            </div>
+            
+			<h1 class="text-4xl md:text-5xl font-bold text-white font-heading mb-4 leading-tight">{post.data.title}</h1>
+            
+            <div class="text-gray-400 flex flex-wrap gap-4 text-sm border-b border-gray-800 pb-8">
+                <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('ja-JP')}
+                </time>
+                <div class="flex gap-2">
+                    {post.data.tags.map(tag => (
+                        <span class="text-[var(--color-diamond-blue)]">#{tag}</span>
+                    ))}
+                </div>
+            </div>
+		</div>
+
+        <!-- Featured Image -->
+        <div class="mb-10 rounded-xl overflow-hidden shadow-2xl border border-gray-800 aspect-video relative">
+            {post.data.heroImage ? (
+			    <img width={1020} height={510} src={post.data.heroImage} alt="" class="relative z-10 w-full h-full object-cover" />
+            ) : (
+                <div class={`w-full h-full flex items-center justify-center ${patternClass} relative z-10`}>
+                    <div class={`absolute inset-0 ${overlayColor}`}></div>
+                     <div class="text-center relative z-20 p-4">
+                        <span class="block text-4xl md:text-5xl font-heading font-bold text-white text-shadow-block tracking-wider mb-2 uppercase">
+                            {fallbackText}
+                        </span>
+                    </div>
+                </div>
+            )}
+            {!post.data.heroImage && <div class="absolute inset-0 border-4 border-[#2f1f17]/50 z-30 pointer-events-none rounded-xl"></div>}
+        </div>
+
+        <!-- Content -->
+		<div class="prose prose-invert prose-lg max-w-none 
+            prose-headings:font-heading prose-headings:text-white prose-headings:border-b prose-headings:border-gray-800 prose-headings:pb-2 prose-headings:mb-6
+            prose-p:text-gray-300 prose-p:leading-relaxed
+            prose-a:text-[var(--color-minecraft-green)] prose-a:no-underline hover:prose-a:text-[var(--color-diamond-blue)] hover:prose-a:underline
+            prose-strong:text-white prose-strong:font-bold
+            prose-ul:marker:text-[var(--color-diamond-blue)]
+            prose-blockquote:border-l-4 prose-blockquote:border-[var(--color-minecraft-green)] prose-blockquote:bg-gray-800/50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r
+            ">
+			<Content />
+		</div>
+        
+        <!-- Post-article Ad -->
+        <div class="mt-12 pt-8 border-t border-gray-800">
+             <AdPlaceholder />
+        </div>
+	</article>
+</Layout>
