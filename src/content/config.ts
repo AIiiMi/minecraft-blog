@@ -6,9 +6,9 @@ const blog = defineCollection({
 		description: z.string(),
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
-        version: z.string(),
-        category: z.enum(['News', 'Mods', 'Column']),
-        tags: z.array(z.string()).default([]),
+		version: z.string(),
+		category: z.enum(['News', 'Mods', 'Column', 'Tech']),
+		tags: z.array(z.string()).default([]),
 		heroImage: z.string().optional(),
 	}),
 });
