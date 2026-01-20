@@ -5,8 +5,6 @@ interface Props {
 
 const { variant = 'content-end' } = Astro.props;
 
-const heightClass = variant === 'sidebar' ? 'h-64' : 'h-32';
-
 const ads = [
     {
         href: "https://px.a8.net/svt/ejp?a8mat=4AVAC8+AQECDU+55QO+5YRHE",
@@ -24,14 +22,17 @@ const ads = [
         imgRx: "https://www13.a8.net/0.gif?a8mat=4AVAC8+DDNP6A+5IYS+5YJRM"
     }
 ];
+
+// Randomize order on build (or render)
+const shuffledAds = ads.sort(() => 0.5 - Math.random());
 ---
 
-<div class={`w-full ${heightClass} bg-gray-900 border border-gray-800 rounded-lg flex flex-col items-center justify-center gap-2 overflow-hidden relative my-8 group p-4`}>
+<div class={`w-full bg-gray-900 border border-gray-800 rounded-lg flex flex-col items-center justify-center gap-2 overflow-hidden relative my-8 group p-6`}>
     <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-30"></div>
     <span class="text-xs text-gray-500 uppercase tracking-widest font-bold z-10 mb-2">Sponsored</span>
     
     <div class="z-10 flex flex-col gap-3 w-full max-w-xs items-center">
-        {ads.map(ad => (
+        {shuffledAds.map(ad => (
             <div class="text-center w-full">
                 <a href={ad.href} rel="nofollow" class="block w-full py-2 px-4 rounded bg-gray-800/80 hover:bg-gray-700 text-sm md:text-base text-[var(--color-minecraft-green)] hover:text-white font-bold transition-all border border-gray-700/50 hover:border-[var(--color-diamond-blue)]/50">
                     {ad.label}
