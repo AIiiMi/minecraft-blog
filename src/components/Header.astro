@@ -1,0 +1,16 @@
+---
+import { SITE_TITLE } from '../consts';
+---
+
+<header class="bg-gray-800 border-b border-gray-700 py-4 px-6">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a href="/" class="text-2xl font-bold text-[var(--color-minecraft-green)] flex items-center gap-2 hover:text-white transition-colors">
+            {SITE_TITLE}
+        </a>
+        <nav class="flex gap-4">
+            <a href="/" class="text-gray-300 hover:text-white hover:underline decoration-[var(--color-minecraft-green)] underline-offset-4 font-bold transition-all">Home</a>
+             <a href="/news" class="text-gray-300 hover:text-white hover:underline decoration-[var(--color-minecraft-green)] underline-offset-4 font-bold transition-all">News</a>
+             <a href="/mods" class="text-gray-300 hover:text-white hover:underline decoration-[var(--color-minecraft-green)] underline-offset-4 font-bold transition-all">Mods</a>
+        </nav>
+    </div>
+</header>
