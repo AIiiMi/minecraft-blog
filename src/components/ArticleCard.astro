@@ -1,5 +1,4 @@
 ---
-import VersionBadge from './VersionBadge.astro';
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
@@ -49,10 +48,6 @@ if (lowerCat === 'news' || lowerTags.includes('news') || lowerTags.includes('sna
      )}
      
      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60 z-10 pointer-events-none"></div>
-
-     <div class="absolute top-3 left-3 z-20">
-         <VersionBadge version={version} />
-     </div>
 
      {category && (
         <div class="absolute top-3 right-3 bg-[var(--color-minecraft-green)] text-black text-xs font-bold px-2 py-1 rounded uppercase tracking-wider shadow-lg z-20">
