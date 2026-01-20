@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<Layout title={`お問い合わせ | ${SITE_TITLE}`}>
+	<article class="max-w-4xl mx-auto px-4 py-8">
+		<h1 class="text-3xl font-bold mb-6 text-[var(--color-minecraft-green)] font-heading">お問い合わせ</h1>
+		
+		<div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+			<p class="mb-6 text-gray-300">当ブログに関するご質問、ご感想、お仕事の依頼などがございましたら、以下の方法でご連絡ください。</p>
+			
+			<h3 class="text-xl font-bold mb-4 text-white">📩 X (旧Twitter) のDM</h3>
+			<p class="mb-6 text-gray-300">
+				一番早く反応できます。お気軽にメッセージをお送りください。<br>
+				<a href="https://x.com/vebcxejfhx22910" target="_blank" rel="noopener noreferrer" class="text-[var(--color-minecraft-green)] hover:underline font-bold mt-2 inline-block">
+					👉 @vebcxejfhx22910 (ここをクリック)
+				</a>
+			</p>
+
+			<div class="border-t border-gray-700 my-8"></div>
+
+			<h3 class="text-xl font-bold mb-4 text-white">📝 お問い合わせフォーム</h3>
+			<p class="text-gray-400">
+				※現在準備中です。Googleフォームを作成したら、ここに埋め込みコードを貼り付けます。
+			</p>
+		</div>
+	</article>
+</Layout>
