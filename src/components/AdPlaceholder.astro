@@ -31,13 +31,26 @@ const shuffledAds = ads.sort(() => 0.5 - Math.random());
     <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-30"></div>
     <span class="text-xs text-gray-500 uppercase tracking-widest font-bold z-10 mb-2">Sponsored</span>
     
-    <div class="z-10 flex flex-col gap-3 w-full max-w-xs items-center">
-        <!-- New Ad Banner -->
-        <div class="text-center w-full mb-2">
-            <a href="https://px.a8.net/svt/ejp?a8mat=4AVAC9+7FX302+50+4YTR9D" rel="nofollow">
-            <img border="0" width="300" height="250" alt="" src="https://www20.a8.net/svt/bgt?aid=260120601450&wid=001&eno=01&mid=s00000000018030036000&mc=1"></a>
-            <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4AVAC9+7FX302+50+4YTR9D" alt="">
-        </div>
+    <div class="z-10 flex flex-col gap-3 w-full max-w-3xl items-center">
+        <!-- Banner Ads Container -->
+        <div class="flex flex-wrap justify-center gap-4 w-full mb-2">
+            <!-- First Ad Banner -->
+            <div>
+                <a href="https://px.a8.net/svt/ejp?a8mat=4AVAC9+7FX302+50+4YTR9D" rel="nofollow">
+                <img border="0" width="300" height="250" alt="" src="https://www20.a8.net/svt/bgt?aid=260120601450&wid=001&eno=01&mid=s00000000018030036000&mc=1"></a>
+                <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4AVAC9+7FX302+50+4YTR9D" alt="">
+            </div>
+
+            <!-- Second Ad Banner -->
+            <div>
+                <a href="https://px.a8.net/svt/ejp?a8mat=4AVAC9+7MGUNM+CO4+2NAN35" rel="nofollow">
+                <img border="0" width="300" height="250" alt="" src="https://www21.a8.net/svt/bgt?aid=260120601461&wid=001&eno=01&mid=s00000001642016006000&mc=1"></a>
+                <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4AVAC9+7MGUNM+CO4+2NAN35" alt="">
+            </div>
+            </div>
+    </div>
+        
+        <div class="flex flex-col gap-3 w-full max-w-xs items-center">
         
         {shuffledAds.map(ad => (
             <div class="text-center w-full">
