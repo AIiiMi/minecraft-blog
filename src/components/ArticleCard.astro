@@ -1,5 +1,7 @@
 ---
 import VersionBadge from './VersionBadge.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 
 interface Props {
   title: string;
@@ -8,7 +10,8 @@ interface Props {
   date: string;
   slug: string;
   tags?: string[];
-  image?: string;
+  image?: ImageMetadata;
+  category?: string;
 }
 
 const { title, excerpt, version, date, slug, tags = [], image, category } = Astro.props;
@@ -35,7 +38,7 @@ if (lowerCat === 'news' || lowerTags.includes('news') || lowerTags.includes('sna
 <a href={`/posts/${slug}`} class="group block bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[var(--color-minecraft-green)]/10 transition-all duration-300 border border-gray-700 hover:border-[var(--color-minecraft-green)]/50 hover:-translate-y-1">
   <div class="aspect-video w-full bg-gray-700 relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
      {image ? (
-        <img src={image} alt={title} class="w-full h-full object-cover" />
+        <Image src={image} alt={title} class="w-full h-full object-cover" width={600} height={337} />
      ) : (
         <div class={`w-full h-full flex items-center justify-center ${patternClass} relative transition-transform duration-700`}>
              <div class={`absolute inset-0 ${overlayColor}`}></div>
