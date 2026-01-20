@@ -25,6 +25,7 @@ const posts = (await getCollection('blog'))
                     slug={post.slug}
                     tags={post.data.tags}
                     image={post.data.heroImage}
+                    category={post.data.category}
                 />
             ))}
         </div>
