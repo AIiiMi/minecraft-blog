@@ -6,7 +6,6 @@ interface Props {
 const { variant = 'content-end' } = Astro.props;
 
 const heightClass = variant === 'sidebar' ? 'h-64' : 'h-32';
----
 
 const ads = [
     {
@@ -25,9 +24,6 @@ const ads = [
         imgRx: "https://www13.a8.net/0.gif?a8mat=4AVAC8+DDNP6A+5IYS+5YJRM"
     }
 ];
-
-// Randomize order on build (or render)
-// const shuffledAds = ads.sort(() => 0.5 - Math.random());
 ---
 
 <div class={`w-full ${heightClass} bg-gray-900 border border-gray-800 rounded-lg flex flex-col items-center justify-center gap-2 overflow-hidden relative my-8 group p-4`}>
