@@ -20,7 +20,6 @@ This project follows specific translation rules for Minecraft terms, based on th
 | **Ominous Bottle** | 不吉な瓶 | |
 | **Bad Omen** | 不吉な予感 | |
 | **Trial Omen** | 試練の予感 | |
-| **Copper Bulb** | 銅の電球 | |
 | **Crafter** | クラフター | |
 | **Chiseled Copper** | 模様入りの銅 | |
 | **Tuff** | 凝灰岩 | |
@@ -63,7 +62,7 @@ This project follows specific translation rules for Minecraft terms, based on th
 | **Repeater** | レッドストーンリピーター | |
 | **Comparator** | レッドストーンコンパレーター | |
 | **Observer** | オブザーバー | |
-| **Dropper** | ドロップ― | |
+| **Dropper** | ドロッパー | |
 | **Dispenser** | ディスペンサー | |
 | **Piston** | ピストン | |
 | **Sticky Piston** | 粘着ピストン | |
