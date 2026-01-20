@@ -9,6 +9,7 @@ const blog = defineCollection({
 		version: z.string(),
 		category: z.enum(['News', 'Mods', 'Column', 'Tech', 'Guide']),
 		tags: z.array(z.string()).default([]),
+		pinned: z.boolean().optional().default(false),
 		heroImage: image().optional(),
 	}),
 });
