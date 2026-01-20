@@ -27,7 +27,7 @@ const posts = (await getCollection('blog')).sort((a, b) => {
             {
                 posts.map((post) => (
                     <li class="group relative bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-[var(--color-minecraft-green)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,0,0.2)] hover:-translate-y-1">
-                        <a href={`/blog/${post.slug}/`}>
+                        <a href={`/posts/${post.slug}/`}>
                             <div class="relative aspect-video overflow-hidden">
                                     <Image 
                                         width={720} 
